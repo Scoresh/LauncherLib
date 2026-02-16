@@ -1,5 +1,7 @@
 package mathutil;
 
+import mathutil.QuadraticReturnType.QuadraticType;
+
 public class Quadratics {
     
     public static QuadraticReturnType CalculateZeroes(double a, double b, double c){
@@ -14,34 +16,9 @@ public class Quadratics {
 
     public static double ReturnGreaterZero(double a, double b, double c){
         QuadraticReturnType results = Quadratics.CalculateZeroes(a, b, c);
-        if (results.quadraticType == QuadraticType.IMAGINARY) return null;
+        if (results.quadraticType == QuadraticType.IMAGINARY) return -1.0;
         return results.roots[0] >= results.roots[1] ? results.roots[0] : results.roots[1];
     }
 
-    public class QuadraticReturnType {
-        public enum QuadraticType {
-            IMAGINARY,
-            REAL
-        }
-        public double[] roots;
-        public QuadraticType quadraticType;
-        public QuadraticReturnType(double[] roots){
-            if (roots != null) {
-                this.roots = roots;
-                this.quadraticType = QuadraticType.REAL;
-            }
-            else {
-                this.roots = null;
-                this.quadraticType = QuadraticType.IMAGINARY;
-            }
-        }
-
-        public QuadraticReturnType(){
-            this.roots = null;
-            this.quadraticType = QuadraticType.IMAGINARY;
-        }
     
-        
-
-    }
 }
