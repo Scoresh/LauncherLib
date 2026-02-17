@@ -1,6 +1,6 @@
-package functions;
+package src.main.java.functions;
 
-import mathutil.Quadratics;
+import src.main.java.mathutil.Quadratics;
 
 public class BaseVelocityFlywheelFunction {
     public final double RADIUS_FLYWHEEL;
@@ -30,8 +30,20 @@ public class BaseVelocityFlywheelFunction {
         return 0.0;
     }
 
-    public void CalculateTime(double FlywheelVelocity) {
+    public double CalculateTime(double FlywheelVelocity) {
         this.CalculatedTime = Quadratics.ReturnGreaterZero(-9.8, FlywheelVelocity*RADIUS_FLYWHEEL*EFFICIENCY*SIN_ANGLE_LAUNCH, DELTA_Z);
+        System.out.println(this.CalculatedTime + " ==> TIME ");
+        return this.CalculatedTime;
     }
 
+
+    public static double CalculateDifferenceBetweenFunctions(BaseVelocityFlywheelFunction f1, BaseVelocityFlywheelFunction f2, double velocity) {
+        System.out.println("Difference: " + (f1.CalculateFunction(velocity) - f2.CalculateFunction(velocity)));
+        return f1.CalculateFunction(velocity) - f2.CalculateFunction(velocity);
+    }
+
+    public double CalculateDifferenceBetweenFunctions(BaseVelocityFlywheelFunction f2, double velocity) {
+        System.out.println("DifferenceBETWEENFUNC: " + (this.CalculateFunction(velocity) - f2.CalculateFunction(velocity)));
+        return this.CalculateFunction(velocity) - f2.CalculateFunction(velocity);
+    }
 }

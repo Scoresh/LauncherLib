@@ -1,6 +1,6 @@
-package functions;
+package src.main.java.functions;
 
-import mathutil.Quadratics;
+import src.main.java.mathutil.Quadratics;
 
 /**
  * XFunction defines forces and velocities acting in the x direction (towards front of bot)
@@ -31,6 +31,7 @@ public class XFunction extends BaseVelocityFlywheelFunction{
     public double CalculateFunction(double FlywheelVelocity) {
         CalculateTime(FlywheelVelocity);
         // robot velocity x minus target 
+        System.out.println((DELTA_X - VELOCITY_X * this.CalculatedTime) / (-FlywheelVelocity*RADIUS_FLYWHEEL*EFFICIENCY*COS_ANGLE_LAUNCH * this.CalculatedTime));
         return Math.asin((DELTA_X - VELOCITY_X * this.CalculatedTime) / (-FlywheelVelocity*RADIUS_FLYWHEEL*EFFICIENCY*COS_ANGLE_LAUNCH * this.CalculatedTime));
     }
 }

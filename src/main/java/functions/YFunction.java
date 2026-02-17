@@ -1,6 +1,6 @@
-package functions;
+package src.main.java.functions;
 
-import mathutil.Quadratics;
+import src.main.java.mathutil.Quadratics;
 
 /**
  * YFunction defines forces and velocities acting in the y direction (towards left of bot)
@@ -31,6 +31,7 @@ public class YFunction extends BaseVelocityFlywheelFunction{
     public double CalculateFunction(double FlywheelVelocity) {
         CalculateTime(FlywheelVelocity);
         // robot velocity x minus target 
+        System.out.println((DELTA_Y - VELOCITY_Y * this.CalculatedTime) / (-FlywheelVelocity*RADIUS_FLYWHEEL*EFFICIENCY*COS_ANGLE_LAUNCH * this.CalculatedTime));
         return Math.acos((DELTA_Y - VELOCITY_Y * this.CalculatedTime) / (-FlywheelVelocity*RADIUS_FLYWHEEL*EFFICIENCY*COS_ANGLE_LAUNCH * this.CalculatedTime));
     }
 }

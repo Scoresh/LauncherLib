@@ -7,20 +7,9 @@
  */
 plugins {
     id 'java'
+    id 'application'
 }
 
-repositories {
-	mavenCentral()
-}
-
-
-
-
-dependencies {
-    compileOnly 'org.projectlombok:lombok:1.18.36'
-    annotationProcessor 'org.projectlombok:lombok:1.18.36'
-    
-    // For testing
-    testCompileOnly 'org.projectlombok:lombok:1.18.36'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.36'
+application{
+    mainClass = 'src.main.java.Tester'
 }
