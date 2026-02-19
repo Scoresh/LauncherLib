@@ -1,21 +1,42 @@
 
 import functions.BaseFunction;
 import mathutil.FunctionUtil;
+import mathutil.LinearRegressionUtil;
+import mathutil.Point;
 
 public class Tester {
-    public static double RADIUS_FLYWHEEL = .02;
-    public static double EFFICIENCY = 1;
-    public static double ANGLE = Math.PI/3;
-    public static double ChangeZ = 1.5;
-    public static double Velocity_X = 0;
-    public static double Velocity_Y = 0;
-    public static double ChangeX = 4;
-    public static double ChangeY = 4;
+    
     public static void main(String[] args){
         System.out.println("Running Tester.java");
+        testLinearRegression();
+    
+    }
+
+    public static void testLinearRegression() {
+        Point[] points = new Point[]{
+            new Point(0,0),
+            new Point(2,2),
+            new Point(4,4),
+            new Point(7,7),
+            new Point(9,9)
+        };
+        var f1 = LinearRegressionUtil.LinearRegression(points);
+        System.out.println(f1.function(10));
+        points = new Point[]{
+            new Point(0,0),
+            new Point(1,2),
+            new Point(2,4),
+            new Point(3.5,7),
+            new Point(4.5,9)
+        };
+        var f2 = LinearRegressionUtil.LinearRegression(points);
+        System.out.println(f2.function(10));
+        System.out.println(f1.function(10));
+    }
+
+    public static void eFunc() {
         BaseFunction aFUNction = (value) -> Math.pow(Math.E,value);
         var aFUNctionDERIV = FunctionUtil.nDeriviativeFunction(aFUNction, 6);
         System.out.println(aFUNctionDERIV.function(1));
-    
     }
 }

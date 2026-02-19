@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
+import mathutil.Point;
 import mathutil.quadratics.QuadraticRoots;
+import mathutil.quadratics.QuadraticRoots.QuadraticType;
 
 @ToString
 @SuperBuilder
@@ -30,8 +32,21 @@ public class QuadraticFunction implements BaseFunction {
         return QuadraticRoots.calculate(this);
     }
 
+    public boolean real() {
+        return getRoots().type == QuadraticType.REAL;
+    }
+
     public double[] getNumericalRoots() {
         return getRoots().roots;
     }
-
+    /**
+     * Get roots as points assume that you know if the roots are real or not. 
+     * @return Points (2) of roots.
+     */
+    public Point[] getRootsAsPoints() {
+        return new Point[]{
+            new Point(getRoots().roots[0], 0),
+            new Point(getRoots().roots[1], 0)
+        };
+    }
 }
