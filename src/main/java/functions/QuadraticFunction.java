@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
+import mathutil.quadratics.QuadraticRoots;
 
 @ToString
 @SuperBuilder
@@ -25,5 +26,12 @@ public class QuadraticFunction implements BaseFunction {
         return this.a * input * input + this.b * input + this.c; 
     }
     
+    public QuadraticRoots getRoots() {
+        return QuadraticRoots.calculate(this);
+    }
+
+    public double[] getNumericalRoots() {
+        return getRoots().roots;
+    }
 
 }

@@ -13,4 +13,12 @@ public class HeightPhysicsFunction extends QuadraticFunction{
            initialHeight 
         );
     }
+    // give me two instead of one...
+    public HeightPhysicsFunction(double initialUpwardVelocity, double initialHeight, double finalHeight) {
+        super (
+           -9.8,
+           initialUpwardVelocity,
+           finalHeight - initialHeight 
+        );
+    }
 }
