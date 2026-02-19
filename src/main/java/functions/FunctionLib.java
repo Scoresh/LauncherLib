@@ -17,6 +17,8 @@ public class FunctionLib {
 
     public static BaseFunction ArcTangent() {return (value) -> Math.atan(value);}
 
-    
+    public static BaseFunction UnitFunction() {
+        return (value) -> value;
+    }
 
 }

@@ -13,9 +13,9 @@ public class Tester {
     public static double ChangeY = 4;
     public static void main(String[] args){
         System.out.println("Running Tester.java");
-        BaseFunction sine = (value) -> Math.sin(value);
-        var tripleDeriviative = FunctionUtil.nDeriviativeFunction(sine, 6);
-        System.out.println(tripleDeriviative.function(Math.PI/2));
+        BaseFunction aFUNction = (value) -> Math.pow(Math.E,value);
+        var aFUNctionDERIV = FunctionUtil.nDeriviativeFunction(aFUNction, 6);
+        System.out.println(aFUNctionDERIV.function(1));
     
     }
 }

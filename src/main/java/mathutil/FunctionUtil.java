@@ -1,6 +1,7 @@
 package mathutil;
 
 import functions.BaseFunction;
+import functions.FunctionLib;
 
 public class FunctionUtil {
     public static double GLOBAL_DX = 1E-6;
@@ -27,6 +28,18 @@ public class FunctionUtil {
     }
     private static double calculateDx(int n) {
         return calculateDx(n,GLOBAL_DX);
+    }
+
+    public static BaseFunction chain(BaseFunction outer, BaseFunction inner){
+        return (value) -> outer.function(inner.function(value));
+    }
+    
+    public static BaseFunction chain(BaseFunction... outerToInner) {
+        BaseFunction evolvingFunction = FunctionLib.UnitFunction();
+        for (BaseFunction i : outerToInner){
+            evolvingFunction = chain(evolvingFunction, i);
+        }
+        return evolvingFunction;
     }
 
 }
