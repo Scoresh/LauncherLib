@@ -2,6 +2,7 @@ package mathutil;
 
 import functions.BaseFunction;
 import functions.FunctionLib;
+import lombok.ToString;
 
 public class FunctionUtil {
     public static double GLOBAL_DX = 1E-6;
@@ -42,4 +43,30 @@ public class FunctionUtil {
         return evolvingFunction;
     }
 
+
+
+    public static Point calculateYInterceptPoint(BaseFunction f) {
+        return new Point(0,f.function(0));
+    }
+    public static double calculateYIntercept(BaseFunction f){
+        return f.function(0);
+    }
+
+
+    public static FunctionConcavity getConcavity(BaseFunction f, double value){
+        double secondDeriviativeValue = nDeriviativeFunction(f, 2).function(value);
+        if (EpsilonEquals.epsilonEquals(secondDeriviativeValue, 0)) {
+            return FunctionConcavity.INFLECTING;
+        }
+        else {
+            return secondDeriviativeValue > 0 ? FunctionConcavity.CONCAVE_UP : FunctionConcavity.CONCAVE_DOWN;
+        }
+    }
+    
+    @ToString
+    public enum FunctionConcavity {
+        CONCAVE_UP,
+        CONCAVE_DOWN,
+        INFLECTING
+    }
 }
