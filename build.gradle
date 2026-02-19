@@ -10,6 +10,21 @@ plugins {
     id 'application'
 }
 
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Lombok
+    compileOnly 'org.projectlombok:lombok:1.18.42'
+    annotationProcessor 'org.projectlombok:lombok:1.18.42'
+
+    // (Optional but recommended for tests)
+    testCompileOnly 'org.projectlombok:lombok:1.18.42'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.42'
+}
+
+
 application{
-    mainClass = 'src.main.java.Tester'
+    mainClass = 'Tester'
 }

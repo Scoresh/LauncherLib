@@ -1,4 +1,4 @@
-package src.main.java.mathutil;
+package mathutil;
 
 public class QuadraticReturnType {
         public enum QuadraticType {

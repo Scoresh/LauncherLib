@@ -1,6 +1,6 @@
-package src.main.java.mathutil;
+package mathutil;
 
-import src.main.java.mathutil.QuadraticReturnType.QuadraticType;
+import mathutil.QuadraticReturnType.QuadraticType;
 
 public class Quadratics {
     
