@@ -3,6 +3,7 @@ import functions.BaseFunction;
 import constants.FlywheelConstants;
 
 public class FuelVelocityOutOfLauncher {
+    
     public static BaseFunction getFuelVelocityFunction() {
         return (angularRotationRadiansPerSecond) -> angularRotationRadiansPerSecond * FlywheelConstants.FlywheelRadius
                 * FlywheelConstants.FlywheelEfficiency.function(angularRotationRadiansPerSecond);

@@ -1,10 +1,53 @@
 package flywheelfunctions;
 
+import java.util.HashMap;
+
+import constants.FlywheelConstants;
+import functions.QuadraticFunction;
 import functions.BaseFunction;
-import functions.HeightPhysicsFunction;
-import flywheelfunctions.FuelVelocityOutOfLauncher;
-public class FuelTimeFunction {
-    public static BaseFunction getTimeFunction() {
-        return (angularRotationRadiansPerSecond) -> FuelVelocityOutOfLauncher.getFuelVelocityVerticalFunction().function(angularRotationRadiansPerSecond) * 1;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+
+@ToString
+public class FuelTimeFunction implements BaseFunction {
+
+    @Getter @Setter
+    private FuelTimeAim aim = FuelTimeAim.HUB;
+
+    HashMap<FuelTimeAim, Double> aimMap = FlywheelConstants.aimToDifference;
+
+    QuadraticFunction fuelTimeFunction = QuadraticFunction.builder()
+                                        .a(-9.8)
+                                        .c(aimMap.getOrDefault(aim, 0.0))
+                                        .build();
+
+    BaseFunction verticalVelocityFunction = FuelVelocityOutOfLauncher.getFuelVelocityVerticalFunction();
+    
+    public FuelTimeFunction(){}
+
+
+
+    /**
+     * Returns time, 
+     * @param input input as double angular velocity RPS
+     * @return return greater root
+     */
+    @Override
+    public double function(double angularVelocityRadiansPerSecond) {
+        fuelTimeFunction.setB(verticalVelocityFunction.function(angularVelocityRadiansPerSecond));
+        return fuelTimeFunction.getGreaterRoot();        
     }
+    
+    public boolean real() {
+        return fuelTimeFunction.real();
+    }
+
+
+    public enum FuelTimeAim {
+        GROUND,
+        HUB
+    }
+
 }

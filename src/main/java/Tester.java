@@ -1,4 +1,7 @@
 
+import flywheelfunctions.FlywheelRootEstimator;
+import flywheelfunctions.FuelDistanceFunctions;
+import flywheelfunctions.FuelTimeFunction;
 import functions.BaseFunction;
 import mathutil.FunctionUtil;
 import mathutil.LinearRegressionUtil;
@@ -8,9 +11,17 @@ public class Tester {
     
     public static void main(String[] args){
         System.out.println("Running Tester.java");
-        testLinearRegression();
+        runflywheeltests();
     
     }
+
+    public static void runflywheeltests() {
+        FlywheelRootEstimator es = new FlywheelRootEstimator();
+        es.CalculateFlywheelRoot(0);
+    }
+
+
+
 
     public static void testLinearRegression() {
         Point[] points = new Point[]{
