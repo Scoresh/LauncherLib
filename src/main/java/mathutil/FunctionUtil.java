@@ -62,7 +62,7 @@ public class FunctionUtil {
             return secondDeriviativeValue > 0 ? FunctionConcavity.CONCAVE_UP : FunctionConcavity.CONCAVE_DOWN;
         }
     }
-    
+
     @ToString
     public enum FunctionConcavity {
         CONCAVE_UP,

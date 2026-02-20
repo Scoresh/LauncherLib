@@ -27,7 +27,9 @@ public class QuadraticFunction implements BaseFunction {
     public double function(double input) {
         return this.a * input * input + this.b * input + this.c; 
     }
-    
+     
+
+
     public QuadraticRoots getRoots() {
         return QuadraticRoots.calculate(this);
     }
