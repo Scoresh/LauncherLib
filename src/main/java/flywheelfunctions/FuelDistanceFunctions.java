@@ -28,7 +28,7 @@ public class FuelDistanceFunctions {
     /**
      * In reality, I would use RobotState and given data here...
      * @param t time function to avoid redunancy
-     * @return 
+     * @return Fuel traveling in a predefined X direction.
      */
     public static BaseFunction getXDirectionDistanceFunction(FuelTimeFunction t) {
         return FunctionUtil.chain(
@@ -38,6 +38,11 @@ public class FuelDistanceFunctions {
                 getDistanceFlywheelFunction(t)
             ));
     }
+    /**
+     * get Y direction as a distance function. 
+     * @param t time function to avoid redundancy
+     * @return Fuel traveling in a y direction
+     */
     public static BaseFunction getYDirectionDistanceFunction(FuelTimeFunction t) {
         return FunctionUtil.chain(
             FunctionLib.ArcSine(), 
@@ -46,10 +51,14 @@ public class FuelDistanceFunctions {
                 getDistanceFlywheelFunction(t)
             ));
     }
-
+    /**
+     * Return the root function (defined as f(x) - h(x))
+     * @param t time function to avoid redundancy
+     * @return Difference between the x and y functions
+     */
     public static BaseFunction getRootFunction(FuelTimeFunction t) {
-        return (value) -> getXDirectionDistanceFunction(t).function(value) - getYDirectionDistanceFunction(t).function(value);
-        // return BasicArithmeticUtil.subtract(getXDirectionDistanceFunction(t), getYDirectionDistanceFunction(t));
+        // return (value) -> getXDirectionDistanceFunction(t).function(value) - getYDirectionDistanceFunction(t).function(value);
+        return BasicArithmeticUtil.subtract(getXDirectionDistanceFunction(t), getYDirectionDistanceFunction(t));
     }
 
 

@@ -39,12 +39,17 @@ public class FuelTimeFunction implements BaseFunction {
         fuelTimeFunction.setB(verticalVelocityFunction.function(angularVelocityRadiansPerSecond));
         return fuelTimeFunction.getGreaterRoot();        
     }
-    
+    /**
+     * Return if the time function is a real number
+     * @return is real
+     */
     public boolean real() {
         return fuelTimeFunction.real();
     }
 
-
+    /**
+     * Enumerator defined as GROUND, HUB (aiming passing locations)
+     */
     public enum FuelTimeAim {
         GROUND,
         HUB
