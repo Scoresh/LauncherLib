@@ -3,6 +3,7 @@ import flywheelfunctions.FlywheelRootEstimator;
 import flywheelfunctions.FuelDistanceFunctions;
 import flywheelfunctions.FuelTimeFunction;
 import functions.BaseFunction;
+import functions.BasicArithmeticUtil;
 import mathutil.FunctionUtil;
 import mathutil.LinearRegressionUtil;
 import mathutil.Point;
@@ -12,7 +13,6 @@ public class Tester {
     public static void main(String[] args){
         System.out.println("Running Tester.java");
         runflywheeltests();
-    
     }
 
     public static void runflywheeltests() {
@@ -21,7 +21,12 @@ public class Tester {
     }
 
 
-
+    public static void runArithmeticTests() {
+        BaseFunction bf = BasicArithmeticUtil.multiply(
+            (value) -> 5, 
+            (value) -> 3);
+        System.out.println(bf.function(0));
+    }
 
     public static void testLinearRegression() {
         Point[] points = new Point[]{
