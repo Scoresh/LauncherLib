@@ -1,3 +1,6 @@
+/**
+ * @blame Daniel Sabalakov
+ */
 package functions;
 
 public class FunctionLib {

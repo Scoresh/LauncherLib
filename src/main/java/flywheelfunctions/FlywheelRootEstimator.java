@@ -2,7 +2,7 @@
  * Flywheel Root Estimator takes all of the previously defines functions and estimates the angle at which the robot must point.
  * There is only **one** solution for each equation.  
  * @todo refactor
- * @author Daniel Sabalakov
+ * @blame Daniel Sabalakov
  */
 package flywheelfunctions;
 

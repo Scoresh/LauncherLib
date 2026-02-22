@@ -1,3 +1,6 @@
+/**
+ * @blame Daniel Sabalakov
+ */
 package flywheelfunctions;
 
 import java.util.HashMap;

@@ -1,3 +1,6 @@
+/**
+ * @blame Daniel Sabalakov
+ */
 package mathutil;
 
 public class EpsilonEquals {

@@ -1,6 +1,11 @@
+/**
+ * @blame Daniel Sabalakov
+ */
 package functions;
 
 import java.util.function.DoubleSupplier;
+
+import mathutil.Point;
 
 /**
  * The very base of these values. Given an input "input" or 'x', override this method to return a f(input) or f(x).
@@ -11,4 +16,5 @@ import java.util.function.DoubleSupplier;
 public interface BaseFunction {
     double function(double input);
     default DoubleSupplier getDoubleSupplier(DoubleSupplier inputSupplier) {return () -> function(inputSupplier.getAsDouble());};
+    default Point getPoint(double input) {return new Point(input,function(input));}
 }

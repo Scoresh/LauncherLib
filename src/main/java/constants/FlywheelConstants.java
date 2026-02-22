@@ -1,6 +1,6 @@
 /**
  * Flywheel Constants are to be tuned in the robot. 
- * @author Daniel Sabalakov
+ * @blame Daniel Sabalakov
  * @todo Confirm measurements, integrate into wpilib by making a sample robot project.
  */
 

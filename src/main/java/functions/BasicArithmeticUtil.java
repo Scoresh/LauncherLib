@@ -1,3 +1,6 @@
+/**
+ * @blame Daniel Sabalakov
+ */
 package functions;
 /**
  * Add, subtract, multiply, and divide functions! Is a factory utility class to help create the BaseFunction sequences.

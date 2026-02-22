@@ -1,3 +1,6 @@
+/**
+ * @blame Daniel Sabalakov
+ */
 package mathutil.quadratics;
 
 import functions.QuadraticFunction;

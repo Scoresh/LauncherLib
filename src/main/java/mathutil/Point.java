@@ -1,3 +1,6 @@
+/**
+ * @blame Daniel Sabalakov
+ */
 package mathutil;
 
 import lombok.Builder;
@@ -6,7 +9,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-
+/**
+ * Defines a point (x,y) 
+ */
 @Getter @Setter @EqualsAndHashCode @ToString @NoArgsConstructor 
 public class Point {
     public double x;

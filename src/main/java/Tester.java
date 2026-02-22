@@ -1,3 +1,6 @@
+/**
+ * @blame Daniel Sabalakov
+ */
 import flywheelfunctions.FlywheelRootEstimator;
 import functions.BaseFunction;
 import functions.BasicArithmeticUtil;
