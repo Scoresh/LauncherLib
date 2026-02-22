@@ -1,15 +1,32 @@
+/**
+ * Flywheel Root Estimator takes all of the previously defines functions and estimates the angle at which the robot must point.
+ * There is only **one** solution for each equation.  
+ * @todo refactor
+ * @author Daniel Sabalakov
+ */
 package flywheelfunctions;
 
 import constants.FlywheelConstants;
+import functions.BaseFunction;
 import mathutil.AngleUtil;
 import mathutil.Point;
 
+/**
+ * Flywheel Root Estimator takes all of the previously defines functions and estimates the angle at which the robot must point.
+ * There is only **one** solution for each equation.  
+ */
 public class FlywheelRootEstimator {
+    // Define a time function
     public FuelTimeFunction timeFunc;
+    // define some variables. 
     public double lastEstimate = 0.0;
     public double minimumEstimate = 0.0;
     public double smallestX = Double.MAX_VALUE;
     public double smallestY = Double.MAX_VALUE;
+    /**
+     * create an instance of the class. 
+     * @todo implement either a single instance state. 
+     */
     public FlywheelRootEstimator(){
         timeFunc = new FuelTimeFunction();
     }
@@ -19,11 +36,12 @@ public class FlywheelRootEstimator {
         while (!conditionsMet(lastEstimate)){
             // minimum
             lastEstimate+=0.1;
+            if (lastEstimate > 1000){ System.out.println("No such passing element." + lastEstimate);return null;};
         }
         System.out.println("Minimm Estimate" + lastEstimate);
         minimumEstimate = lastEstimate;
         smallestX = minimumEstimate;
-        var dfunc = FuelDistanceFunctions.getRootFunction(timeFunc);
+        BaseFunction dfunc = FuelDistanceFunctions.getRootFunction(timeFunc);
 
         double currentX = minimumEstimate;
         double currentY;
@@ -35,9 +53,9 @@ public class FlywheelRootEstimator {
                 smallestX = currentX;
                 smallestY = currentY;
             }
-
+            // tune
             lastEstimate+=0.1;
-
+            // over 1000 radians per second, break... 
             if (lastEstimate > 1000) break;
             
         }   
@@ -61,10 +79,15 @@ public class FlywheelRootEstimator {
             System.out.println("ROOT: " + FuelDistanceFunctions.getRootFunction(timeFunc).function(smallestX));
             System.out.println("UTIL CALCULATED ANGLE FINAL: " + AngleUtil.radsToDegrees(AngleUtil.getAngle0to2PI(FuelDistanceFunctions.getXDirectionDistanceFunction(timeFunc).function(smallestX), FuelDistanceFunctions.getYDirectionDistanceFunction(timeFunc).function(smallestX))));
         }
+        // @todo add return state...
         return null;
     }
 
-
+    /**
+     * Check if conditions are met given an angular velocity
+     * @param angularVelocityRadiansPerSecond angular velocity in rads/sec to pass in
+     * @return whether or not the function actually will work. Checks to make sure that the timeFunction is real, makes sure it gives a positive time, and make sure that in the X and Y direction the inverse sine and cosine functions are fine.
+     */
     public boolean conditionsMet(double angularVelocityRadiansPerSecond) {        
         // If the quadratic is not real, return false.
         if (!timeFunc.real()) return false;
@@ -79,7 +102,11 @@ public class FlywheelRootEstimator {
         return true;
     }
 
-
+    /**
+     * Checks to see if the two angles produced are similar enough to be within tolerance. Within ~2.78 degrees
+     * @param angularVelocityRadiansPerSecond Angular velocity to pass in
+     * @return Whether or not the two angles are simliar enough to be within a predefined tolerance.
+     */
     public boolean withinTolerance(double angularVelocityRadiansPerSecond) {
         return Math.abs(FuelDistanceFunctions.getRootFunction(timeFunc).function(angularVelocityRadiansPerSecond)) <= FlywheelConstants.RootFunctionTolerance; 
     }

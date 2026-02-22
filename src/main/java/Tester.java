@@ -1,7 +1,4 @@
-
 import flywheelfunctions.FlywheelRootEstimator;
-import flywheelfunctions.FuelDistanceFunctions;
-import flywheelfunctions.FuelTimeFunction;
 import functions.BaseFunction;
 import functions.BasicArithmeticUtil;
 import mathutil.FunctionUtil;

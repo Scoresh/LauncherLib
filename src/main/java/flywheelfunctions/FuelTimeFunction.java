@@ -14,7 +14,7 @@ import lombok.ToString;
 public class FuelTimeFunction implements BaseFunction {
 
     @Getter @Setter
-    private FuelTimeAim aim = FuelTimeAim.HUB;
+    private FuelTimeAim aim = FuelTimeAim.GROUND;
 
     HashMap<FuelTimeAim, Double> aimMap = FlywheelConstants.aimToDifference;
 

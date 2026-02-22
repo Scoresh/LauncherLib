@@ -1,5 +1,6 @@
 package flywheelfunctions;
 
+import constants.FlywheelConstants;
 import functions.BaseConstant;
 import functions.BaseFunction;
 import functions.BasicArithmeticUtil;
@@ -8,10 +9,10 @@ import mathutil.FunctionUtil;
 // TODO IMPLEMENT POSE3D IN REAL ROBOT PROJECT... USE ROBOTSTATE
 public class FuelDistanceFunctions {
     // register constants
-    public static BaseConstant dx = new BaseConstant(RobotSupplier.dx);
-    public static BaseConstant dy = new BaseConstant(RobotSupplier.dy);
-    public static BaseConstant vx = new BaseConstant(RobotSupplier.vx);
-    public static BaseConstant vy = new BaseConstant(RobotSupplier.vy);
+    public static BaseConstant dx = new BaseConstant(FlywheelConstants.dx);
+    public static BaseConstant dy = new BaseConstant(FlywheelConstants.dy);
+    public static BaseConstant vx = new BaseConstant(FlywheelConstants.vx);
+    public static BaseConstant vy = new BaseConstant(FlywheelConstants.vy);
 
     public static BaseFunction getDistanceFlywheelFunction(FuelTimeFunction t) {
         return BasicArithmeticUtil.multiply(FuelVelocityOutOfLauncher.getFuelVelocityDistanceFunction(), t);
@@ -26,9 +27,8 @@ public class FuelDistanceFunctions {
 
     /**
      * In reality, I would use RobotState and given data here...
-     * @param t
-     * @param robotDataSupplier
-     * @return
+     * @param t time function to avoid redunancy
+     * @return 
      */
     public static BaseFunction getXDirectionDistanceFunction(FuelTimeFunction t) {
         return FunctionUtil.chain(
