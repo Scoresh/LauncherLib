@@ -2,11 +2,15 @@
  * @blame Daniel Sabalakov
  */
 import flywheelfunctions.FlywheelRootEstimator;
+import flywheelfunctions.FuelDistanceFunctions;
+import flywheelfunctions.FuelTimeFunction;
 import functions.BaseFunction;
 import functions.BasicArithmeticUtil;
 import mathutil.FunctionUtil;
+import mathutil.GraphUtil;
 import mathutil.LinearRegressionUtil;
 import mathutil.Point;
+import mathutil.AngleUtil;
 
 public class Tester {
     
@@ -17,7 +21,15 @@ public class Tester {
 
     public static void runflywheeltests() {
         FlywheelRootEstimator es = new FlywheelRootEstimator();
-        es.CalculateFlywheelRoot(0);
+        // GraphUtil g = new GraphUtil(FuelDistanceFunctions.getRootFunction(new FuelTimeFunction()));
+        Point p = es.CalculateFlywheelRoot();
+        if (p == null) {
+            System.out.println("P is null");
+            return;
+        }
+        System.out.println("Rads / second: " + p.getX());
+        System.out.println("Degrees to point robot: " + AngleUtil.radsToDegrees(p.getY()));
+        
     }
 
 

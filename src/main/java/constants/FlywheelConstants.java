@@ -14,7 +14,7 @@ import functions.BaseConstant;
 import functions.BaseFunction;
 
 public class FlywheelConstants {
-    public static double FlywheelMountedAngleRadians = Math.PI/3;
+    public static double FlywheelMountedAngleRadians = Math.PI/6;
     public static double[] FlywheelTRANSFORM = new double[]{0,0,0}; //TODO MAKE PROPER
     public static double FuelWeight = 0.226; //kg
     public static double FlywheelRadius = 0.0762; //meters
@@ -26,10 +26,10 @@ public class FlywheelConstants {
         aimToDifference.put(FuelTimeAim.HUB, 1.8288);
     }
     // TUNABLE (radian tuned)
-    public static double RootFunctionTolerance = 0.05;
+    public static double RootFunctionTolerance = 0.005;
 
     // TUN
-    public static DoubleSupplier dx = () -> 4;
+    public static DoubleSupplier dx = () -> -4;
     public static DoubleSupplier vx = () -> 0;
     public static DoubleSupplier dy = () -> 4;
     public static DoubleSupplier vy = () -> 0;
