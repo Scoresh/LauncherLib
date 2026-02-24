@@ -15,13 +15,14 @@ public class FuelVelocityOutOfLauncher {
                 * FlywheelConstants.FlywheelEfficiency.function(angularRotationRadiansPerSecond);
     }
 
-    public static double MountedAngleCosine = Math.cos(FlywheelConstants.FlywheelMountedAngleRadians);
+    public static double MountedAngleCosine = Math.cos(FlywheelConstants.FlywheelMountedAngleRadians);    
+    public static double MountedAngleSine = Math.sin(FlywheelConstants.FlywheelMountedAngleRadians);
+
     public static BaseFunction getFuelVelocityVerticalFunction() {
-        return (value) -> getFuelVelocityFunction().function(value) * MountedAngleCosine;
+        return (value) -> getFuelVelocityFunction().function(value) * MountedAngleSine;
     } 
 
-    public static double MountedAngleSine = Math.sin(FlywheelConstants.FlywheelMountedAngleRadians);
     public static BaseFunction getFuelVelocityDistanceFunction() {
-        return (value) -> getFuelVelocityFunction().function(value) * MountedAngleSine;
+        return (value) -> getFuelVelocityFunction().function(value) * MountedAngleCosine;
     } 
 }   

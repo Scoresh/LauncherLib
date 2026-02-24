@@ -24,6 +24,12 @@ public class FunctionLib {
             return Math.asin(value);
         };
     }
+
+    public static BaseFunction Square() {
+        return (double value) -> value * value;
+    }
+
+
     /**
      * Return arc tangent function as a BaseFunction
      * @return arc tangent function

@@ -60,7 +60,6 @@ public class FuelDistanceFunctions {
      * @return Difference between the x and y functions
      */
     public static BaseFunction getRootFunction(FuelTimeFunction t) {
-        // return (value) -> getXDirectionDistanceFunction(t).function(value) - getYDirectionDistanceFunction(t).function(value);
         return BasicArithmeticUtil.subtract(getXDirectionDistanceFunction(t), getYDirectionDistanceFunction(t));
     }
 
