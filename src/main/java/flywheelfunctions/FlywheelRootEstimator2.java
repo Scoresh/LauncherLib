@@ -29,7 +29,7 @@ public class FlywheelRootEstimator2 {
     // root = 0
     public Point CalculateFlywheelRoot() {
         // calculate lower and upper bounds
-        double[] bounds = Bounds2.determinefinitePositiveBoundForFuelFunctions(FuelDistanceFunctions.getRootFunction(timeFunc));
+        double[] bounds = Bounds2.determinefinitePositiveBoundForFuelFunctions(FuelDistanceFunctions2.getRootFunction(timeFunc));
         
         if (bounds == null) return null;
 
@@ -57,12 +57,6 @@ public class FlywheelRootEstimator2 {
         if (!timeFunc.real()) return false;
         // if the time it takes for the flywheel to fly is less than 0, return false.
         if (timeFunc.function(angularVelocityRadiansPerSecond) < 0) return false;
-        if (Double.isNaN(
-            FuelDistanceFunctions.getXDirectionDistanceFunction(timeFunc).function(angularVelocityRadiansPerSecond)
-        )) return false;
-        if (Double.isNaN(
-            FuelDistanceFunctions.getYDirectionDistanceFunction(timeFunc).function(angularVelocityRadiansPerSecond)
-        )) return false;
         return true;
     }
 
