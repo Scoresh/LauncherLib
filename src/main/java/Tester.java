@@ -27,10 +27,7 @@ public class Tester {
         FlywheelRootEstimator2 es = new FlywheelRootEstimator2();
         // GraphUtil g = new GraphUtil(FuelDistanceFunctions.getRootFunction(new FuelTimeFunction()));
         Point p = es.CalculateFlywheelRoot();
-        if (p == null) {
-            System.out.println("P is null");
-            return;
-        }
+        
         System.out.println("Rads / second: " + p.getX());
         System.out.println("Degrees to point robot: " + AngleUtil.radsToDegrees(p.getY()));
         

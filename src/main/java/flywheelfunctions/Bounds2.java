@@ -11,7 +11,7 @@ public class Bounds2 {
      * @param f BaseFunction to determine the bounds of
      * @return [lower,upper] bounds
      */
-    public static double[] determinefinitePositiveBoundForFuelFunctions(BaseFunction f) {
+    public static double[] determineFinitePositiveBoundForFuelFunctions(BaseFunction f) {
         double lowerBound, higherBound;
         // loop through
         double checkDoubleValue = 0.0;

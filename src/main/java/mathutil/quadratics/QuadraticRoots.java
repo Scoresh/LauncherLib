@@ -28,9 +28,7 @@ public class QuadraticRoots {
         double a = function.getA();
         double b = function.getB();
         double c = function.getC();
-        System.out.println(a + " " + b + " " + c);
         double discriminant = b * b  + ((-4) * a * c);
-        System.out.println(((-4) * a * c));
 
         QuadraticType returnType = discriminant >= 0 ? QuadraticType.REAL : QuadraticType.IMAGINARY;
         if (returnType == QuadraticType.IMAGINARY) System.out.println("Imaginary Roots");
