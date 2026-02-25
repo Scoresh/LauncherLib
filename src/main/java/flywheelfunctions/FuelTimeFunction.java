@@ -28,9 +28,7 @@ public class FuelTimeFunction implements BaseFunction {
 
     BaseFunction verticalVelocityFunction = FuelVelocityOutOfLauncher.getFuelVelocityVerticalFunction();
     
-    public FuelTimeFunction(){
-        System.out.println(aimMap.get(aim));
-    }
+    public FuelTimeFunction(){}
 
 
 

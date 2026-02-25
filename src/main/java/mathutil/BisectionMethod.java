@@ -21,10 +21,6 @@ public class BisectionMethod {
         if (withinTolerance(f, midpoint, tolerance)) return midpoint;
         if (withinTolerance(f,lowerBound,tolerance)) return lowerBound;
         if (withinTolerance(f,upperBound,tolerance)) return upperBound;
-
-        System.out.println(f.function(lowerBound));
-        System.out.println(f.function(midpoint));
-        System.out.println(f.function(upperBound));
         // first, check if there is a root between the two bounds
         if (!rootBetween(f, lowerBound, upperBound)) return Double.NaN;
         // calculate midpoint

@@ -4,11 +4,7 @@
 package flywheelfunctions;
 
 import constants.FlywheelConstants;
-import functions.BaseConstant;
 import functions.BaseFunction;
-import functions.BasicArithmeticUtil;
-import functions.FunctionLib;
-import mathutil.FunctionUtil;
 // TODO IMPLEMENT POSE3D IN REAL ROBOT PROJECT... USE ROBOTSTATE
 public class FuelDistanceFunctions2 {
     

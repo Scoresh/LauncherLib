@@ -8,7 +8,6 @@ package flywheelfunctions;
 
 import constants.FlywheelConstants;
 import functions.BaseFunction;
-import mathutil.AngleUtil;
 import mathutil.BisectionMethod;
 import mathutil.Point;
 
